@@ -1,7 +1,7 @@
 const EventEmitter = require('events')
 const ON_INPUT_CHANGED = 'on_input_changed'
 
-class Gate extends EventEmitter {
+class BaseComponent extends EventEmitter {
   /**
    *
    * @param {Array <String>} inputNames
@@ -40,8 +40,8 @@ class Gate extends EventEmitter {
     return this._outputs[outputName]
   }
 
-  get gateType () {
-    return 'base'
+  get type () {
+    return 'base-component'
   }
 
   get name () {
@@ -59,8 +59,8 @@ class Gate extends EventEmitter {
   }
 
   _getRandomName () {
-    return `${this.gateType}_${Math.floor(Math.random() * 16777215).toString(16)}`
+    return `${this.type}_${Math.floor(Math.random() * 16777215).toString(16)}`
   }
 }
 
-module.exports = Gate
+module.exports = BaseComponent

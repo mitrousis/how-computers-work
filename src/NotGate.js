@@ -1,19 +1,19 @@
-const Gate = require('./Gate')
+const BaseGate = require('./BaseGate')
 
-class NotGate extends Gate {
+class NotGate extends BaseGate {
   /**
    * @param {String} name
    */
   constructor (name = null) {
-    super(['a'], ['c'], name)
+    super(['A'], ['C'], name)
   }
 
-  get gateType () {
+  get type () {
     return 'NOT'
   }
 
   _update () {
-    this._outputs.c = !this._inputs.a
+    this._outputs.C = !this._inputs.A
     super._update()
   }
 }

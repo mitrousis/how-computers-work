@@ -1,19 +1,19 @@
-const Gate = require('./Gate')
+const BaseGate = require('./BaseGate')
 
-class NandGate extends Gate {
+class NandGate extends BaseGate {
   /**
    * @param {String} name
    */
   constructor (name = null) {
-    super(['a', 'b'], ['c'], name)
+    super(['A', 'B'], ['C'], name)
   }
 
-  get gateType () {
+  get type () {
     return 'NAND'
   }
 
   _update () {
-    this._outputs.c = !(this._inputs.a && this._inputs.b)
+    this._outputs.C = !(this._inputs.A && this._inputs.B)
     super._update()
   }
 }
